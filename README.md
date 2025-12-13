@@ -49,7 +49,7 @@
 - phpmyadmin：http://localhost:8080
 
 ## ER Diagram / ER図
-![ER図](docs/er.drawio.png)
+![ER図](src/docs/er.drawio.png)
 
 
 
