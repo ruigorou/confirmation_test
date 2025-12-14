@@ -70,6 +70,36 @@ public function run()
 5. Check that the seeder file was created via phpMyAdmin / phpMyAdminでシーディング結果を確認  
 [http://localhost:8080](http://localhost:8080)
 
+## File Structure / ファイル構成
+```
+confirmation_test_contact-form/
+├── README.md
+├── docker
+│   ├── mysql
+│   ├── nginx
+│   └── php
+├── docker-compose.yml
+└── src
+    ├── README.md
+    ├── app
+    ├── artisan
+    ├── bootstrap
+    ├── composer.json
+    ├── composer.lock
+    ├── config
+    ├── database
+    ├── docs
+    ├── package.json
+    ├── phpunit.xml
+    ├── public
+    ├── resources
+    ├── routes
+    ├── server.php
+    ├── storage
+    ├── tests
+    ├── vendor
+    └── webpack.mix.js
+```
 ## Application URLs (Development Environment) / url(開発環境)
 - Contact Form / お問い合わせ画面：http://localhost
 - User Registration / ユーザー登録：http://localhost/register
