@@ -35,10 +35,10 @@
 2. マイグレーション実行  
 ```php artisan migrate```
 
-## Seeding / シーデング 
+## Seeding / シーディング 
 1. Create a Seeder File / シーダーファイルの作成  
 ```php artisan make:seeder シーダ名```
-2. Run Seeder / シーデングの実行  
+2. Run Seeder / シーディングの実行  
 ```php artisan db:seed```
 3. Check that the seeder file was created via phpMyAdmin / phpMyAdminでシーディング結果を確認  
 [http://localhost:8080](http://localhost:8080)
