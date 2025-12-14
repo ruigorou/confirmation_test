@@ -25,22 +25,49 @@
 ```php artisan key:generate```
 
 ## Database Migration / マイグレーション
-1. Create a Migration File /マイグレーションファイルの作成  
+1. Create a Migration File /マイグレーションファイルの作成   
 ```php artisan make:migration create_[テーブル名]_table```
-2. Run Migrations / マイグレーション実行  
+2. Define Table Structure / テーブルデータの作成  
+```public function up(){  
+    Schema::create('categories', function (Blueprint $table) {  
+        $table->id();  
+        $table->string('content', 255);  
+        $table->timestamps();  
+        });  
+    }
+```
+3. Run Migrations / マイグレーション実行  
 ```php artisan migrate```
 ### Reset Migrations (All data will be deleted) / マイグレーションのやり直し(※データが削除されます) 
-1. マイグレーションファイルのロールバックとマイグレートを一度に行う  
 ```php artisan migrate:fresh```
-2. マイグレーション実行  
 ```php artisan migrate```
 
 ## Seeding / シーディング 
 1. Create a Seeder File / シーダーファイルの作成  
 ```php artisan make:seeder シーダ名```
-2. Run Seeder / シーディングの実行  
+2. Create Dummy Data / ダミーデータの作成
+``` 
+public function run() {
+    DB::table('categories')->insert([
+    ['content' => '1. 商品のお届けについて', 'created_at' => $now, 'updated_at' => $now],
+    ['content' => '2. 商品の交換について', 'created_at' => $now, 'updated_at' => $now],
+    ['content' => '3. 商品トラブル', 'created_at' => $now, 'updated_at' => $now],
+    ['content' => '4. ショップへのお問い合わせ', 'created_at' => $now, 'updated_at' => $now],
+    ['content' => '5. その他', 'created_at' => $now, 'updated_at' => $now],
+    ]);
+}
+
+```
+3. Modify / DatabaseSeederの変更 
+``` 
+public function run()  
+{  
+    $this->call(CategoriesSeeder::class);  
+}
+```
+4. Run Seeder / シーディングの実行  
 ```php artisan db:seed```
-3. Check that the seeder file was created via phpMyAdmin / phpMyAdminでシーディング結果を確認  
+5. Check that the seeder file was created via phpMyAdmin / phpMyAdminでシーディング結果を確認  
 [http://localhost:8080](http://localhost:8080)
 
 ## Application URLs (Development Environment) / url(開発環境)
