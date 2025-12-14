@@ -1,0 +1,23 @@
+body {
+    color: #8B6F4E;
+}
+
+header {
+    border-bottom: 1px solid #ccc;
+}
+
+.title-family {
+    font-family: 'Playfair Display',serif;
+}
+
+.header__title {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.header__title a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 25px;
+    color: inherit;
+}
