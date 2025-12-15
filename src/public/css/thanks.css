@@ -1,0 +1,28 @@
+body {
+    margin-top: 20%;
+    max-width: 1230px;
+}
+.thanks__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.thanks__heading {
+    margin-bottom: 40px;
+    text-align: center;
+    color: #8B6F4E;
+}
+
+.form__button {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.form__button-toppage {
+    padding: 10px 30px;
+    border-radius: 3px;
+    background: #8B6F4E;
+    color: #fff;
+    text-decoration: none;
+}

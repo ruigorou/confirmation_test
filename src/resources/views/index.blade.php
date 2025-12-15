@@ -4,72 +4,147 @@
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 @endsection
 @section('content')
-    <div class="contents__title title-family">
-        <h2>Contact</h2>
+    <div class="contact-form__content">
+        <div class="contact-form__heading">
+            <h2 class="title-family">Contact</h2>
+        </div>
+        <form class="form" action="/confirm" method="post">
+            @csrf
+            <div class="form__group">
+                <div class="form__group-title">
+                    <span class="form__label--item">お名前</span>
+                    <span class="form__label--required">※</span>
+                </div>
+                <div class="form__group-content">
+                    <div class="form__input--name_text">
+                        <input class="form__input--name_text-first_name" type="text" name="name" placeholder="例：山田" />
+                        <input class="form__input--name_text-last_name" type="text" name="name" placeholder="例：太郎" />
+                    </div>
+                    <div class="form__error">
+                        <!--バリデーション機能を実装したら記述します。-->
+                    </div>
+                </div>
+            </div>
+            <div class="form__group">
+                <div class="form__group-title">
+                    <span class="form__label--item">性別</span>
+                    <span class="form__label--required">※</span>
+                </div>
+                <div class="form__group-content">
+                    <div class="form__input--gender">
+                        <label class="form__input--gender-label" for="male">
+                            <input type="radio" name="gender" value="male" />男性
+                        </label>
+                        <label class="form__input--gender-label" for="female">
+                            <input type="radio" name="gender" value="female" />女性
+                        </label>
+                        <label class="form__input--gender-label" for="other">
+                            <input type="radio" name="gender" value="other" />その他
+                        </label>
+                    </div>
+                    <div class="form__error">
+                        <!--バリデーション機能を実装したら記述します。-->
+                    </div>
+                </div>
+            </div>
+            <div class="form__group">
+                <div class="form__group-title">
+                    <span class="form__label--item">メールアドレス</span>
+                    <span class="form__label--required">※</span>
+                </div>
+                <div class="form__group-content">
+                    <div class="form__input--text">
+                        <input type="email" name="email" placeholder="test@example.com" />
+                    </div>
+                    <div class="form__error">
+                        <!--バリデーション機能を実装したら記述します。-->
+                    </div>
+                </div>
+            </div>
+            <div class="form__group">
+                <div class="form__group-title">
+                    <span class="form__label--item">電話番号</span>
+                    <span class="form__label--required">※</span>
+                </div>
+                <div class="form__group-content">
+                    <div class="form__input--tel">
+                        <label for="tel">
+                            <input type="tel" name="tel" placeholder="080" /> －
+                        </label>
+                        <label for="tel">
+                            <input type="tel" name="tel" placeholder="1234" /> －
+                        </label>
+                        <label for="tel">
+                            <input type="tel" name="tel" placeholder="5678" />
+                        </label>
+                    </div>
+                    <div class="form__error">
+                        <!--バリデーション機能を実装したら記述します。-->
+                    </div>
+                </div>
+            </div>
+            <div class="form__group">
+                <div class="form__group-title">
+                    <span class="form__label--item">住所</span>
+                    <span class="form__label--required">※</span>
+                </div>
+                <div class="form__group-content">
+                    <div class="form__input--text">
+                        <input type="address" name="address" placeholder="例）沖縄県那覇市123" />
+                    </div>
+                    <div class="form__error">
+                        <!--バリデーション機能を実装したら記述します。-->
+                    </div>
+                </div>
+            </div>
+            <div class="form__group">
+                <div class="form__group-title">
+                    <span class="form__label--item">建物名</span>
+                </div>
+                <div class="form__group-content">
+                    <div class="form__input--text form__inputt--sub_address">
+                        <input type="sab_address" name="sab_address" placeholder="例）沖縄マンション" />
+                    </div>
+                </div>
+            </div>
+            <div class="form__group">
+                <div class="form__group-title">
+                    <span class="form__label--item">お問い合わせの種類</span>
+                    <span class="form__label--required">※</span>
+                </div>
+                <div class="form__group-content">
+                    <div class="form__input--select">
+                        <select name="type_of_inquiry" id="">
+                            <option value="">選択してください</option>
+                            <option value="">aaaa</option>
+                        </select>
+                    </div>
+                    <div class="form__error">
+                        <!--バリデーション機能を実装したら記述します。-->
+                    </div>
+                </div>
+            </div>
+            <div class="form__group">
+                <div class="form__group-title">
+                    <span class="form__label--item">お問い合わせ内容</span>
+                    <span class="form__label--required">※</span>
+                </div>
+                <div class="form__group-content">
+                    <div class="form__input--textarea">
+                        <textarea name="content" placeholder="お問い合わせ内容をご記入下さい。"></textarea>
+                    </div>
+                    <div class="form__error">
+                        <!--バリデーション機能を実装したら記述します。-->
+                    </div>
+                </div>
+            </div>
+            <div class="form__button">
+                <button class="form__button-submit" type="submit">確認画面</button>
+            </div>
+        </form>
     </div>
-    <form class="contact-form" action="">
-        @csrf
-        <table class="contact-form__table">
-            <tr class="contact-form__row">
-                <td colspan="2" class="contact-form__label">名前 <span class="contact-form__required">※</span></td>
-                <td class="contact-form__name"><input class="contact-form__name-input-first_name" type="text" value="例：山田"></td>
-                <td class="contact-form__name"><input class="contact-form__name-input-last_name" type="text" value="例：太郎"></td>
-            </tr>
-            <tr class="contact-form__row">
-                <td colspan="2">性別　<span class="contact-form__required">※</span></td>
-                <td colspan="4" class="contact-form__gender">
-                    <label>
-                        <input class="contact-form__gender-input-male" type="radio" name="gender" value="male">男性
-                    </label>
-                    <label>
-                        <input class="contact-form__gender-input-female" type="radio" name="gender" value="female">女性
-                    </label>
-                    <label>
-                        <input class="contact-form__gender-input-other" type="radio" name="gender" value="other">その他
-                    </label>
-                </td>
-            </tr>
-            <tr class="contact-form__row">
-                <td colspan="2">メールアドレス　<span class="contact-form__required">※</span></td>
-                <td colspan="5"><input class="contact-form__email" type="text" value="例:test@example.com"></td>
-            </tr>
-            <tr class="contact-form__row">
-                <td colspan="2">電話番号　<span class="contact-form__required">※</span></td>
-                <td class="contact-form__tel">
-                    <input class="contact-form__tel-input--area" type="text">
-                </td>
-                <td class="contact-form__tel-separator">-</td>
-                <td class="contact-form__tel">
-                    <input class="contact-form__tel-input--local" type="text">
-                </td>
-                <td class="contact-form__tel-separator">-</td>
-                <td class="contact-form__tel">
-                    <input class="contact-form__tel-input--subscriber" type="text">
-                </td>
-            </tr>
-            <tr class="contact-form__row">
-                <td colspan="2">住所　<span class="contact-form__required">※</span></td>
-                <td><input type="text"></td>
-            </tr>
-            <tr class="contact-form__row">
-                <td colspan="2">建物名</td>
-                <td><input type="text"></td>
-            </tr>
-            <tr class="contact-form__row">
-                <td colspan="2">お問い合わせの種類　<span class="contact-form__required">※</span></td>
-                <td>
-                    <select name="" id="">
-                        <option value="">選択して下さい</option>
-                    </select>
-                </td>
-            </tr>
-            <tr class="contact-form__row">
-                <td colspan="2">お問い合わせ内容　<span class="contact-form__required">※</span></td>
-                <td>
-                    <textarea class="contact-form" name="" id=""></textarea>
-                </td>
-            </tr>
-        </table>
-    </form>
+
+
+
 
 @endsection
