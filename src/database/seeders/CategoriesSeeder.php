@@ -17,11 +17,11 @@ class CategoriesSeeder extends Seeder
     {
         $now = Carbon::now();
         DB::table('categories')->insert([
-            ['content' => '1. 商品のお届けについて', 'created_at' => $now, 'updated_at' => $now],
-            ['content' => '2. 商品の交換について', 'created_at' => $now, 'updated_at' => $now],
-            ['content' => '3. 商品トラブル', 'created_at' => $now, 'updated_at' => $now],
-            ['content' => '4. ショップへのお問い合わせ', 'created_at' => $now, 'updated_at' => $now],
-            ['content' => '5. その他', 'created_at' => $now, 'updated_at' => $now],
+            ['content' => '商品のお届けについて', 'created_at' => $now, 'updated_at' => $now],
+            ['content' => '商品の交換について', 'created_at' => $now, 'updated_at' => $now],
+            ['content' => '商品トラブル', 'created_at' => $now, 'updated_at' => $now],
+            ['content' => 'ショップへのお問い合わせ', 'created_at' => $now, 'updated_at' => $now],
+            ['content' => 'その他', 'created_at' => $now, 'updated_at' => $now],
         ]);
     }
 }

@@ -16,4 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ContactController::class, 'index']);
 Route::post('/confirm', [ContactController::class, 'confirm']);
+Route::post('/edit', [ContactController::class, 'edit']);
 Route::post('/thanks', [ContactController::class, 'thanks']);
+Route::get('/register', [ContactController::class, 'register']);
+Route::get('/login', [ContactController::class, 'login']);
+

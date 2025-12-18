@@ -50,26 +50,46 @@
     width: 100%;
     outline: none;
     border: none;
-}
-
-.confirm-table__row:last-child .confirm-table__header,
-.confirm-table__row:last-child .confirm-table__text {
-    border-bottom-width: 0;
+    color: #8B6F4E;
 }
 
 .form__button {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
     margin-top: 30px;
-    text-align: center;
+}
+
+.form__button form,
+.form__edit-button{
+    display: inline-block;
+    
+}
+
+.form__button-item {
+    display: flex;
 }
 
 .form__button-submit {
     padding: 10px;
-    width: 20%;
+    width: 200px;
     height: 50px;
     border: none;
     border-radius: 3px;
     background: #8B6F4E;
     color: #fff;
     cursor: pointer;
-    margin-right: 40px;
+}
+
+
+.form__edit-button {
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 3px;
+    background: #8B6F4E;
+    color: #fff;
+    cursor: pointer;
+    
 }
