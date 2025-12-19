@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Contact;
@@ -70,7 +71,7 @@ class ContactController extends Controller
        return view('register');
     }
 
-    public function registerStore(Request $request)
+    public function registerStore(UserRequest $request)
     {
         $data = $request->only(['name', 'email', 'password']);
         $data['password'] = bcrypt($data['password']);
@@ -83,7 +84,7 @@ class ContactController extends Controller
       return view('login');
     }
 
-    public function login(Request $request)
+    public function login(UserRequest $request)
     {
         $credentials = $request->only('email', 'password');
 

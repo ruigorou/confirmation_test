@@ -21,6 +21,11 @@
                             <input type="text" name="name" value="{{ old('name') }}" placeholder="例）山田　太郎" />
                         </div>
                     </div>
+                    <div class="form__error">
+                        @error('name')
+                            {{ $message }}
+                        @enderror
+                    </div>
                 </div>
                 <div class="form__group">
                     <div class="form__group-title">
@@ -31,6 +36,11 @@
                             <input type="email" name="email" value="{{ old('email') }}" placeholder="test@example.com" />
                         </div>
                     </div>
+                    <div class="form__error">
+                        @error('email')
+                            {{ $message }}
+                        @enderror
+                    </div>
                 </div>
                 <div class="form__group">
                     <div class="form__group-title">
@@ -40,6 +50,11 @@
                         <div class="form__input--text">
                             <input type="password" name="password" value="{{ old('password') }}" placeholder="" />
                         </div>
+                    </div>
+                    <div class="form__error">
+                        @error('password')
+                            {{ $message }}
+                        @enderror
                     </div>
                 </div>
                 <div class="form__button">
