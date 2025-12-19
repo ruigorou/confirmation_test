@@ -6,6 +6,8 @@ use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Contact;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 class ContactController extends Controller
 {
     public function index()
@@ -62,14 +64,44 @@ class ContactController extends Controller
         return view('thanks');
     }
 
-    public function register ()
+    public function register (Request $request)
     {
+        
        return view('register');
     }
 
-    public function login()
+    public function registerStore(Request $request)
     {
-        return view('login');
+        $data = $request->only(['name', 'email', 'password']);
+        $data['password'] = bcrypt($data['password']);
+        User::create($data);
+        return redirect('/login');
+    }
+
+    public function showLoginForm ()
+    {
+      return view('login');
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            // ログイン成功
+            return redirect()->intended('/admin');
+        }
+
+        // ログイン失敗
+        return back()->withErrors([
+            'login' => 'メールアドレスまたはパスワードが正しくありません。',
+        ])->withInput();
+    }
+
+    public function admin (Request $request)
+    {
+        $contacts = Contact::Paginate(10);
+        return view('admin', compact('contacts'));
     }
 
 

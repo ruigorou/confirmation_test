@@ -1,0 +1,42 @@
+.admin__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.admin__heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.contacts_link {
+    text-align: right;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+svg.w-5.h-5 {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+table {
+    width: 800px;
+    margin: 0 auto;
+}
+
+tr th {
+    background: #bd8a4f;
+    max-width: 800px;
+    padding: 10px;
+}
+
+.Details-button {
+    padding: 10px;
+    width: 100px;
+    border-radius: 3px;
+    background: #fff;
+    color: #bd8a4f;
+    cursor: pointer;
+    border-color: beige;
+}

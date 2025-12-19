@@ -9,9 +9,27 @@
     @yield('css')
 </head>
 <body>
-    <header>
-        <div class="header__title title-family">
-            <a href="/">FashionablyLate</a>
+    <header class="header">
+        <div class="header__nav">
+            <div class="header__title title-family">
+                <a href="/">FashionablyLate</a>
+            </div>
+            <div class="header__buttons">
+                @guest
+                    @if (request()->is('login'))
+                        <a href="/register" class="header__button">Register</a>
+                    @elseif (request()->is('register'))
+                        <a href="/login" class="header__button">Login</a>
+                    @endif
+                @endguest
+    
+                @auth
+                    <form action="/logout" method="POST" >
+                        @csrf
+                        <button type="submit" class="header__button">Logout</button>
+                    </form>
+                @endauth
+            </div>
         </div>
     </header>
     <main>

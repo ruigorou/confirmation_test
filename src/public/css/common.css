@@ -8,6 +8,15 @@ header {
     margin: 0 auto;
 }
 
+.header__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+
+
 .title-family {
     font-family: 'Playfair Display',serif;
 }
@@ -22,4 +31,14 @@ header {
     font-weight: bold;
     font-size: 25px;
     color: inherit;
+}
+
+
+
+.header__button {
+    padding: 10px 10px;
+    border-radius: 3px;
+    background: #bd8a4f;
+    color: #fff;
+    text-decoration: none;
 }

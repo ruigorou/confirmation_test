@@ -3,12 +3,13 @@
 @section('css')
     <link rel="stylesheet" href="{{ asset('css/register.css') }}">
 @endsection
+
 @section('content')
     <div class="register__content">
         <div class="register__heading">
             <h2 class="title-family">Register</h2>
         </div>
-        <form class="form" action="/register" method="post">
+        <form class="form" action="/registerStore" method="post">
             @csrf
             <div class="register__form">
                 <div class="form__group">
@@ -17,7 +18,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--text">
-                            <input type="text" name="name" value="" placeholder="例）山田　太郎" />
+                            <input type="text" name="name" value="{{ old('name') }}" placeholder="例）山田　太郎" />
                         </div>
                     </div>
                 </div>
@@ -27,7 +28,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--text">
-                            <input type="email" name="email" value="" placeholder="test@example.com" />
+                            <input type="email" name="email" value="{{ old('email') }}" placeholder="test@example.com" />
                         </div>
                     </div>
                 </div>
@@ -37,7 +38,7 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--text">
-                            <input type="password" name="password" value="" placeholder="" />
+                            <input type="password" name="password" value="{{ old('password') }}" placeholder="" />
                         </div>
                     </div>
                 </div>
