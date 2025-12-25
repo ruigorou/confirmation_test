@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Contact;
@@ -84,7 +85,7 @@ class ContactController extends Controller
       return view('login');
     }
 
-    public function login(UserRequest $request)
+    public function login(LoginRequest $request)
     {
         $credentials = $request->only('email', 'password');
 
