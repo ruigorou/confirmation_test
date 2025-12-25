@@ -35,11 +35,6 @@ DB_PASSWORD=laravel_pass
 ## Run Migrations / マイグレーション実行  
 ```php artisan migrate```  
 
-### Reset Migrations (All data will be deleted) / マイグレーションのやり直し(※データが削除されます) 
-```php artisan migrate:fresh```
-```php artisan migrate```
-
-
 ## Run Seeder / シーディングの実行  
 ```php artisan db:seed```
 ### Check that the seeder file was created via phpMyAdmin / phpMyAdminでシーディング結果を確認  
