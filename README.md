@@ -12,7 +12,7 @@
 1. Clone the repository / リポジトリクローン  
  ```git clone git@github.com:ruigorou/confirmation_test.git```  
  ```cd confirmation_test```
-2. Build and Start Docker Containers / Dockerコンテナのビルドと起動
+2. Build and Start Docker Containers / Dockerコンテナのビルドと起動  
 ```docker-compose up -d --build```
 ## Laravel Setup / Laravel環境構築
 1. Install Laravel Packages / Laravelパッケージのインストール  
