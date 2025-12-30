@@ -34,7 +34,8 @@ class CreateNewUser implements CreatesNewUsers
             'name.required' => '名前を入力して下さい',
             'email.required' => 'メールアドレスを入力して下さい',
             'email.email' => 'メールアドレスはメール形式で入力してください',
-            'password.required' => 'パスワードを入力して下さい'
+            'password.required' => 'パスワードを入力して下さい',
+            'password.default' => '8文字以上入力して下さい'
         ]
         )->validate();
 
