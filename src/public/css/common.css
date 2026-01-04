@@ -1,18 +1,17 @@
 body {
     color: #8B6F4E;
+    max-width: 1230px;
 }
 
 header {
     border-bottom: 1px solid #ccc;
-    max-width: 1230px;
-    margin: 0 auto;
+    width: 100%;
 }
 
 .header__nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
 }
 
 
@@ -41,4 +40,5 @@ header {
     background: #bd8a4f;
     color: #fff;
     text-decoration: none;
+    margin-top: 25%;
 }

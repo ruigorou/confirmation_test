@@ -19,4 +19,8 @@ Route::post('/confirm', [ContactController::class, 'confirm']);
 Route::post('/edit', [ContactController::class, 'edit']);
 Route::post('/thanks', [ContactController::class, 'thanks']);
 Route::get('/admin', [ContactController::class, 'admin']);
+Route::post('/admin', [ContactController::class,'index']);
+Route::get('/search', [ContactController::class, 'search'])->name('search');
+
+Route::get('/export', [ContactController::class,'search']);
 
