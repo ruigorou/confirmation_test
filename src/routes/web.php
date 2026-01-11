@@ -24,3 +24,5 @@ Route::get('/search', [ContactController::class, 'search'])->name('search');
 
 Route::get('/export', [ContactController::class,'search']);
 
+Route::post('/delete', [ContactController::class, 'destroy']);
+

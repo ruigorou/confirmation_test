@@ -87,51 +87,66 @@ class ContactController extends Controller
     public function admin (Request $request)
     {
         $contacts = Contact::Paginate(10);
-        return view('admin', compact('contacts'));
+        $categories = Category::all();
+        return view('admin', compact('contacts', 'categories'));
     }
 
     public function search (Request $request)
     {
-        $keyword = $request->input('search');
-        $gender = $request->input('gender');
-        $categories = $request->input('category');
-        $datePicker = $request->input('datePicker');
+        if ($request->has('reset')) {
+            return redirect('/admin')->withInput();
+        }
+
         $action = $request->input('action');
-        $contacts = Contact::query();
+        $query = Contact::query();
+        $query = $this->setSearchQuery($request, $query);
+
         
-        if (!empty($keyword)) {
-            $contacts->where(function ($query) use ($keyword) {
-                $query->where('email', 'like', "%{$keyword}%")
-                    ->orWhere('first_name', 'like', "%{$keyword}%")
-                    ->orWhere('last_name', 'like', "%{$keyword}%");
-            });
-        }
-         
-        if (!empty($gender)) {
-            $contacts->where('gender', $gender);
-        }
-
-        if (!empty($categories)) {
-            $contacts->where('category_id', $categories);
-        }
-
-        if (!empty($datePicker)) {
-            $contacts->wheredate('created_at',  $datePicker);
-        }
-
         if ($action === 'export') { 
-            return new \Symfony\Component\HttpFoundation\StreamedResponse(function () use ($contacts) { $handle = fopen('php://output', 'w'); fputcsv($handle, 
+            return new \Symfony\Component\HttpFoundation\StreamedResponse(function () use ($query) { $handle = fopen('php://output', 'w'); fputcsv($handle, 
                 ['ID', '姓', '名', 'メール', '性別', 'カテゴリ', '登録日']
             ); 
-            foreach ($contacts->get() as $contact) { 
+            foreach ($query->get() as $contact) { 
                 fputcsv($handle, [ $contact->id, $contact->last_name, $contact->first_name, $contact->email, $contact->gender, $contact->category_id, $contact->created_at->format('Y-m-d H:i:s'), ]); 
             }
                 fclose($handle);
             }, 200, [ 'Content-Type' => 'text/csv', 'Content-Disposition' => 'attachment; filename="contacts.csv"', ]); 
         }
         $categories = Category::all();
-        $contacts = $contacts->paginate(10)->appends($request->all());
+        $contacts = $query->paginate(10)->appends($request->all());
 
         return view('admin', compact('contacts', 'categories'));
+    }
+
+    private function setSearchQuery($request, $query) {
+        
+        if (!empty($request->keyword)) {
+            $query->where(function ($q) use ($request) {
+                $q->where('email', 'like', '%' . $request->keyword . '%')
+                ->orWhere('first_name', 'like', '%' . $request->keyword . '%')
+                ->orWhere('last_name', 'like', '%' . $request->keyword . '%');
+            });
+        }
+         
+        if (!empty($request->gender)) {
+            $query->where('gender', '=', $request->gender);
+        }
+
+        if (!empty($request->category_id)) {
+            $query->where('category_id', '=', $request->category_id);
+        }
+
+        if (!empty($request->datePicker)) {
+            $query->wheredate('created_at', '=',   $request->datePicker);
+        }
+
+        return $query;
+
+    }
+
+    public function destroy(Request $request) {
+        $id = $request->input('modal-id');
+        Contact::find($id)->delete();
+        return redirect('admin');
     }
 }

@@ -16,9 +16,10 @@
     justify-content: space-between;
 }
 
-form.search_form {
+.search_form {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
 form.search_form div {
@@ -42,7 +43,7 @@ form.search_form div {
 
 .contents {
     display: flex;
-    width: 1000px;
+    width: 100%;
     justify-content: space-between;
     margin: 0 auto;
 }
@@ -93,4 +94,53 @@ svg.w-5.h-5 {
     color: #bd8a4f;
     cursor: pointer;
     border-color: beige;
+}
+
+.open-button  {
+    color: #bd8a4f
+}
+
+.dialog {
+    max-width:  800PX;
+    padding: 30px;
+    border: 1px solid #333;
+    color: #8B7969;
+}
+
+.modal-form__group {
+    display: grid;
+    margin-top: 32px;
+
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+.modal-form__label {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.modal__close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #8B7969;
+    border-radius: 50%;
+    color: #8B7969;
+    text-align: center;
+    text-decoration: none;
+}
+
+.modal-form {
+    display: block;
+    text-align: center;
+}
+
+.modal-form__destroy {
+    margin-top: 20px;
+    padding: 5px 10px;
+    background: red;
+    color: #fff;
 }
