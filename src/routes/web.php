@@ -22,7 +22,8 @@ Route::get('/admin', [ContactController::class, 'admin']);
 Route::post('/admin', [ContactController::class,'index']);
 Route::get('/search', [ContactController::class, 'search'])->name('search');
 
-Route::get('/export', [ContactController::class,'search']);
+Route::post('/export', [ContactController::class,'export'])->name('export');
 
 Route::post('/delete', [ContactController::class, 'destroy']);
 
+Route::get('/modal', [ContactController::class, 'modal']);

@@ -47,7 +47,8 @@
         </form>
     </div>
     <div class="contents">
-        <form action="/export">
+        <form action="{{ route('export', request()->query()) }}" method="post">
+            @csrf
             <div>
                 <input type="hidden" name="search" value="{{ request('search') }}">
                 <input type="hidden" name="gender" value="{{ request('gender') }}">

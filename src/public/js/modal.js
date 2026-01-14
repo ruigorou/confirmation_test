@@ -30,3 +30,16 @@ openButtons.forEach(openButton => {
 buttonClose.addEventListener('click', () => {
     modal.close();
 });
+
+let data = {
+    apple: 150,
+    orenge:100,
+    banana:120
+};
+
+console.log(data);
+
+for (let key in data) {
+    console.log(`${key} = ${data[key]}`);
+    console.log(key);
+}
